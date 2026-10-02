@@ -1,0 +1,207 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+    --font-heading: var(--font-sans);
+    --font-sans: var(--font-sans);
+    --font-mono: var(--font-mono);
+    --color-sidebar-ring: var(--sidebar-ring);
+    --color-sidebar-border: var(--sidebar-border);
+    --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+    --color-sidebar-accent: var(--sidebar-accent);
+    --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+    --color-sidebar-primary: var(--sidebar-primary);
+    --color-sidebar-foreground: var(--sidebar-foreground);
+    --color-sidebar: var(--sidebar);
+    --color-chart-5: var(--chart-5);
+    --color-chart-4: var(--chart-4);
+    --color-chart-3: var(--chart-3);
+    --color-chart-2: var(--chart-2);
+    --color-chart-1: var(--chart-1);
+    --color-ring: var(--ring);
+    --color-input: var(--input);
+    --color-border: var(--border);
+    --color-destructive: var(--destructive);
+    --color-accent-foreground: var(--accent-foreground);
+    --color-accent: var(--accent);
+    --color-muted-foreground: var(--muted-foreground);
+    --color-muted: var(--muted);
+    --color-secondary-foreground: var(--secondary-foreground);
+    --color-secondary: var(--secondary);
+    --color-primary-foreground: var(--primary-foreground);
+    --color-primary: var(--primary);
+    --color-popover-foreground: var(--popover-foreground);
+    --color-popover: var(--popover);
+    --color-card-foreground: var(--card-foreground);
+    --color-card: var(--card);
+    --color-foreground: var(--foreground);
+    --color-background: var(--background);
+    --radius-sm: calc(var(--radius) * 0.6);
+    --radius-md: calc(var(--radius) * 0.8);
+    --radius-lg: var(--radius);
+    --radius-xl: calc(var(--radius) * 1.4);
+    --radius-2xl: calc(var(--radius) * 1.8);
+    --radius-3xl: calc(var(--radius) * 2.2);
+    --radius-4xl: calc(var(--radius) * 2.6);
+}
+
+:root {
+    --background: oklch(1 0 0);
+    --foreground: oklch(0.145 0 0);
+    --card: oklch(1 0 0);
+    --card-foreground: oklch(0.145 0 0);
+    --popover: oklch(1 0 0);
+    --popover-foreground: oklch(0.145 0 0);
+    --primary: oklch(0.205 0 0);
+    --primary-foreground: oklch(0.985 0 0);
+    --secondary: oklch(0.97 0 0);
+    --secondary-foreground: oklch(0.205 0 0);
+    --muted: oklch(0.97 0 0);
+    /* A touch darker than shadcn's default, so secondary text keeps 4.5:1 on the raised
+       surfaces (--surface-raised) as well as on the page. */
+    --muted-foreground: oklch(0.5 0 0);
+    --accent: oklch(0.97 0 0);
+    --accent-foreground: oklch(0.205 0 0);
+    --destructive: oklch(0.577 0.245 27.325);
+    --border: oklch(0.922 0 0);
+    --input: oklch(0.922 0 0);
+    --ring: oklch(0.708 0 0);
+    --chart-1: oklch(0.87 0 0);
+    --chart-2: oklch(0.556 0 0);
+    --chart-3: oklch(0.439 0 0);
+    --chart-4: oklch(0.371 0 0);
+    --chart-5: oklch(0.269 0 0);
+    --radius: 0.625rem;
+    --sidebar: oklch(0.985 0 0);
+    --sidebar-foreground: oklch(0.145 0 0);
+    --sidebar-primary: oklch(0.205 0 0);
+    --sidebar-primary-foreground: oklch(0.985 0 0);
+    --sidebar-accent: oklch(0.97 0 0);
+    --sidebar-accent-foreground: oklch(0.205 0 0);
+    --sidebar-border: oklch(0.922 0 0);
+    --sidebar-ring: oklch(0.708 0 0);
+}
+
+.dark {
+    --background: oklch(0.145 0 0);
+    --foreground: oklch(0.985 0 0);
+    --card: oklch(0.205 0 0);
+    --card-foreground: oklch(0.985 0 0);
+    --popover: oklch(0.205 0 0);
+    --popover-foreground: oklch(0.985 0 0);
+    --primary: oklch(0.922 0 0);
+    --primary-foreground: oklch(0.205 0 0);
+    --secondary: oklch(0.269 0 0);
+    --secondary-foreground: oklch(0.985 0 0);
+    --muted: oklch(0.269 0 0);
+    --muted-foreground: oklch(0.708 0 0);
+    --accent: oklch(0.269 0 0);
+    --accent-foreground: oklch(0.985 0 0);
+    --destructive: oklch(0.704 0.191 22.216);
+    --border: oklch(1 0 0 / 10%);
+    --input: oklch(1 0 0 / 15%);
+    --ring: oklch(0.556 0 0);
+    --chart-1: oklch(0.87 0 0);
+    --chart-2: oklch(0.556 0 0);
+    --chart-3: oklch(0.439 0 0);
+    --chart-4: oklch(0.371 0 0);
+    --chart-5: oklch(0.269 0 0);
+    --sidebar: oklch(0.205 0 0);
+    --sidebar-foreground: oklch(0.985 0 0);
+    --sidebar-primary: oklch(0.488 0.243 264.376);
+    --sidebar-primary-foreground: oklch(0.985 0 0);
+    --sidebar-accent: oklch(0.269 0 0);
+    --sidebar-accent-foreground: oklch(0.985 0 0);
+    --sidebar-border: oklch(1 0 0 / 10%);
+    --sidebar-ring: oklch(0.556 0 0);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+    }
+  body {
+    @apply bg-background text-foreground;
+    }
+  html {
+    @apply font-sans;
+    }
+}
+/* Filter Bar component variables (SPEC §9). The registry item installs the same block.
+   Change these to restyle every chip and popover; --fb-density scales sizes and spacing. */
+:root {
+  --fb-chip-height: 1.75rem;
+  --fb-chip-radius: 0.25rem; /* this site's default; the registry uses var(--radius-sm) */
+  --fb-chip-gap: 0.375rem;
+  --fb-chip-border-style: dashed;
+  --fb-chip-unset-border-color: var(--border);
+  --fb-chip-min-width: 3.75rem;
+  --fb-chip-max-width: 25rem;
+  --fb-chip-font-size: 0.8125rem;
+  --fb-popover-width: 18rem;
+  --fb-density: 1; /* 0.875 compact, 1 default, 1.125 comfortable */
+  /* The filter bar's accent. The registry default is your --primary; this site uses green
+     (from the design) and lets you change it in Settings. */
+  --fb-accent: oklch(0.5 0.11 165);
+  --fb-accent-foreground: oklch(0.985 0 0);
+
+  /* Derived from the above; components use these. */
+  --fb-chip-h: calc(var(--fb-chip-height) * var(--fb-density));
+  --fb-chip-px: calc(0.5rem * var(--fb-density));
+  --fb-row-py: calc(0.375rem * var(--fb-density));
+}
+
+.dark {
+  --fb-accent: oklch(0.75 0.13 165);
+  --fb-accent-foreground: oklch(0.2 0.03 165);
+}
+
+/* Docs site surfaces (not part of the component). Layered: the page, raised frames and
+   panels on it, and inset stages inside them where the component is shown. */
+:root {
+  --surface-raised: oklch(0.97 0 0);
+  --surface-stage: oklch(1 0 0);
+  --surface-grid: oklch(0.88 0 0);
+  /* The page canvas: a faint cutting-mat grid. */
+  --canvas-line: oklch(0.972 0 0);
+  --canvas-line-major: oklch(0.955 0 0);
+}
+.dark {
+  --surface-raised: oklch(0.195 0 0);
+  --surface-stage: oklch(0.145 0 0);
+  --surface-grid: oklch(0.3 0 0);
+  --canvas-line: oklch(0.18 0 0);
+  --canvas-line-major: oklch(0.21 0 0);
+}
+
+/* A cutting-mat grid behind every page: fine lines, a slightly stronger line every fourth
+   cell, fading out towards the bottom so content always sits on a quiet surface. */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background-image:
+    linear-gradient(var(--canvas-line-major) 1px, transparent 1px),
+    linear-gradient(90deg, var(--canvas-line-major) 1px, transparent 1px),
+    linear-gradient(var(--canvas-line) 1px, transparent 1px),
+    linear-gradient(90deg, var(--canvas-line) 1px, transparent 1px);
+  background-size: 96px 96px, 96px 96px, 24px 24px, 24px 24px;
+  background-position: -1px -1px;
+  mask-image: linear-gradient(to bottom, black 0%, rgb(0 0 0 / 0.6) 45%, transparent 90%);
+}
+
+/* The "try it" hint's pointer: a small tap, repeated. */
+@keyframes fb-tap {
+  0%, 60%, 100% { transform: translate(0, 0) scale(1); }
+  30% { transform: translate(-2px, -2px) scale(0.88); }
+}
+
+@utility dot-grid {
+  background-image: radial-gradient(var(--surface-grid) 1px, transparent 1px);
+  background-size: 16px 16px;
+}

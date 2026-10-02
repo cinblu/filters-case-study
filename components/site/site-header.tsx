@@ -1,0 +1,29 @@
+import { ArrowLeftIcon, ArrowUpRightIcon } from "lucide-react";
+
+import { COMPONENT_SITE, PORTFOLIO_URL } from "@/lib/links";
+import { Button } from "@/components/ui/button";
+
+/** A slim bar: back to the portfolio on the left, the component on the right. */
+export function SiteHeader() {
+  return (
+    <header className="sticky top-0 z-40 border-b bg-background/80 backdrop-blur-md">
+      <div className="flex h-14 w-full items-center gap-4 px-4 sm:px-6">
+        <a
+          href={PORTFOLIO_URL}
+          className="inline-flex items-center gap-1.5 rounded-sm text-sm text-muted-foreground outline-none hover:text-foreground focus-visible:ring-3 focus-visible:ring-ring/50"
+        >
+          <ArrowLeftIcon aria-hidden className="size-4" />
+          Back to portfolio
+        </a>
+        <div className="ml-auto">
+          <Button asChild size="sm" variant="outline">
+            <a href={COMPONENT_SITE}>
+              Explore the component
+              <ArrowUpRightIcon aria-hidden />
+            </a>
+          </Button>
+        </div>
+      </div>
+    </header>
+  );
+}
