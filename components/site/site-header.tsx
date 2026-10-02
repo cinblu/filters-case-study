@@ -1,7 +1,7 @@
 import { ArrowLeftIcon, ArrowUpRightIcon } from "lucide-react";
 
 import { COMPONENT_SITE, PORTFOLIO_URL } from "@/lib/links";
-import { Button } from "@/components/ui/button";
+import AnimatedButton from "@/components/ui/animated-button";
 
 /** A slim bar: back to the portfolio on the left, the component on the right. */
 export function SiteHeader() {
@@ -16,12 +16,10 @@ export function SiteHeader() {
           Back to portfolio
         </a>
         <div className="ml-auto">
-          <Button asChild size="sm" variant="outline">
-            <a href={COMPONENT_SITE}>
-              Explore the component
-              <ArrowUpRightIcon aria-hidden />
-            </a>
-          </Button>
+          <AnimatedButton as="a" href={COMPONENT_SITE} className="h-8 px-3 text-sm">
+            Explore the component
+            <ArrowUpRightIcon aria-hidden className="ml-1.5 size-3.5" />
+          </AnimatedButton>
         </div>
       </div>
     </header>

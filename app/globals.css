@@ -168,6 +168,9 @@
   /* The page canvas: a faint cutting-mat grid. */
   --canvas-line: oklch(0.972 0 0);
   --canvas-line-major: oklch(0.955 0 0);
+  /* Problems: a strong red for icons, and a subdued one at the weight of muted text. */
+  --problem: oklch(0.53 0.2 27);
+  --problem-muted: oklch(0.55 0.13 25);
 }
 .dark {
   --surface-raised: oklch(0.195 0 0);
@@ -175,6 +178,8 @@
   --surface-grid: oklch(0.3 0 0);
   --canvas-line: oklch(0.18 0 0);
   --canvas-line-major: oklch(0.21 0 0);
+  --problem: oklch(0.68 0.2 25);
+  --problem-muted: oklch(0.7 0.11 22);
 }
 
 /* A cutting-mat grid behind every page: fine lines, a slightly stronger line every fourth

@@ -22,7 +22,7 @@ export const metadata: Metadata = {
     process.env.NEXT_PUBLIC_SITE_URL ??
       (process.env.VERCEL_PROJECT_PRODUCTION_URL
         ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`
-        : `http://localhost:${process.env.PORT ?? 5100}`),
+        : `http://localhost:${process.env.PORT ?? 5005}`),
   ),
   openGraph: { type: "article", title: "Crafting a modular filtering framework for data-heavy products", description },
   twitter: { card: "summary_large_image", title: "Crafting a modular filtering framework for data-heavy products", description },
@@ -31,7 +31,7 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     // Dark only, like the component site's default.
-    <html lang="en" className={cn("dark font-sans", geist.variable, geistMono.variable, fraunces.variable)}>
+    <html lang="en" className={cn("font-sans", geist.variable, geistMono.variable, fraunces.variable)}>
       <body className="bg-background text-foreground antialiased">
         <TooltipProvider>
           <SiteHeader />

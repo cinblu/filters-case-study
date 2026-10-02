@@ -12,6 +12,10 @@ const eslintConfig = defineConfig([
     "out/**",
     "build/**",
     "next-env.d.ts",
+    // Third-party components copied in by the shadcn CLI (animate-ui, Vengeance UI), kept
+    // close to upstream so they're easy to update.
+    "components/animate-ui/**",
+    "components/ui/animated-button.tsx",
   ]),
 ]);
 
