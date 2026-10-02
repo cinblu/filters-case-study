@@ -8,11 +8,11 @@ import {
   motion,
   useInView,
   useMotionValue,
-  useReducedMotion,
   useTransform,
 } from "motion/react";
 import { type ReactNode, useEffect, useRef } from "react";
 
+import { usePrefersReducedMotion } from "@/lib/use-prefers-reduced-motion";
 import { cn } from "@/lib/utils";
 
 export function ImpactRow({
@@ -30,7 +30,7 @@ export function ImpactRow({
 }) {
   const ref = useRef<HTMLDivElement>(null);
   const inView = useInView(ref, { once: true, margin: "0px 0px -15% 0px" });
-  const reduce = useReducedMotion();
+  const reduce = usePrefersReducedMotion();
   const count = useMotionValue(value);
   const rounded = useTransform(count, (v) => Math.round(v));
 
@@ -62,7 +62,7 @@ export function ImpactRow({
 
 /** Minutes against seconds, as two bars. */
 export function SpeedBars() {
-  const reduce = useReducedMotion();
+  const reduce = usePrefersReducedMotion();
   const bars = [
     { label: "Before", detail: "minutes", width: "100%", tone: "bg-muted-foreground/60" },
     { label: "After", detail: "seconds", width: "20%", tone: "bg-(--fb-accent)" },
@@ -76,10 +76,10 @@ export function SpeedBars() {
             <div className="h-2 rounded-full bg-muted" style={{ width: bar.width }}>
               <motion.div
                 className={cn("h-full origin-left rounded-full", bar.tone)}
-                initial={reduce ? false : { scaleX: 0 }}
+                initial={{ scaleX: 0 }}
                 whileInView={{ scaleX: 1 }}
                 viewport={{ once: true }}
-                transition={{ duration: index === 0 ? 1.6 : 0.4, delay: 0.2, ease: "easeOut" }}
+                transition={reduce ? { duration: 0 } : { duration: index === 0 ? 1.6 : 0.4, delay: 0.2, ease: "easeOut" }}
               />
             </div>
             <span className="shrink-0 text-muted-foreground">{bar.detail}</span>
@@ -92,7 +92,7 @@ export function SpeedBars() {
 
 /** Four products' filters drawing into one pattern. */
 export function Converge() {
-  const reduce = useReducedMotion();
+  const reduce = usePrefersReducedMotion();
   const products = ["Archive", "Documents", "CRM", "Learning"];
   const ys = [12, 36, 60, 84];
   return (
@@ -111,19 +111,19 @@ export function Converge() {
             d={`M0 ${y} C 30 ${y}, 30 48, 60 48`}
             stroke="currentColor"
             strokeWidth={1.5}
-            initial={reduce ? false : { pathLength: 0 }}
+            initial={{ pathLength: 0 }}
             whileInView={{ pathLength: 1 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.8, delay: 0.15 * index, ease: "easeInOut" }}
+            transition={reduce ? { duration: 0 } : { duration: 0.8, delay: 0.15 * index, ease: "easeInOut" }}
           />
         ))}
       </svg>
       <motion.span
         className="rounded-md border border-(--fb-accent) bg-background px-2 py-1 font-medium whitespace-nowrap"
-        initial={reduce ? false : { opacity: 0 }}
+        initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         viewport={{ once: true }}
-        transition={{ duration: 0.4, delay: 0.9 }}
+        transition={reduce ? { duration: 0 } : { duration: 0.4, delay: 0.9 }}
       >
         One pattern
       </motion.span>
@@ -137,7 +137,7 @@ const COMMAND = "npx shadcn add @filters/filter-bar";
 export function TypedCommand() {
   const ref = useRef<HTMLDivElement>(null);
   const inView = useInView(ref, { once: true });
-  const reduce = useReducedMotion();
+  const reduce = usePrefersReducedMotion();
   const chars = useMotionValue(COMMAND.length);
   const typed = useTransform(chars, (v) => COMMAND.slice(0, Math.round(v)));
 
@@ -161,9 +161,9 @@ export function TypedCommand() {
       </p>
       <motion.p
         className="text-(--fb-accent)"
-        initial={reduce ? false : { opacity: 0 }}
+        initial={{ opacity: 0 }}
         animate={inView ? { opacity: 1 } : undefined}
-        transition={{ duration: 0.3, delay: 1.8 }}
+        transition={reduce ? { duration: 0 } : { duration: 0.3, delay: 1.8 }}
       >
         ✓ Added filter-bar
       </motion.p>

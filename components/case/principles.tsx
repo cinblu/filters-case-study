@@ -41,7 +41,7 @@ export function TierSplit() {
   const shown = MORE.filter((item) => item.toLowerCase().includes(query.trim().toLowerCase()));
 
   return (
-    <div className="grid w-full items-center gap-8 md:grid-cols-[minmax(0,1fr)_16rem]">
+    <div className="grid grid-cols-1 w-full items-center gap-8 md:grid-cols-[minmax(0,1fr)_16rem]">
       <div className="flex min-w-0 flex-col gap-3">
         <TierLabel title="Up front" detail="The few a screen depends on" />
         <FilterBar filters={filters} tooltips={tooltips} className="w-full" />

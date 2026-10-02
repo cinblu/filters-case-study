@@ -10,7 +10,7 @@ export function SiteHeader() {
       <div className="flex h-14 w-full items-center gap-4 px-4 sm:px-6">
         <a
           href={PORTFOLIO_URL}
-          className="inline-flex items-center gap-1.5 rounded-sm text-sm whitespace-nowrap text-muted-foreground outline-none hover:text-foreground focus-visible:ring-3 focus-visible:ring-ring/50"
+          className="-my-1.5 inline-flex items-center gap-1.5 rounded-sm py-1.5 text-sm whitespace-nowrap text-muted-foreground outline-none hover:text-foreground focus-visible:ring-3 focus-visible:ring-ring/50"
         >
           <ArrowLeftIcon aria-hidden className="size-4" />
           Back to portfolio

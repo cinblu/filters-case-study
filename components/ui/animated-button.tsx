@@ -1,7 +1,8 @@
 "use client";
 
 import React from "react";
-import { motion, useReducedMotion, type MotionProps } from "motion/react";
+import { motion, type MotionProps } from "motion/react";
+import { usePrefersReducedMotion } from "@/lib/use-prefers-reduced-motion";
 import { cn } from "@/lib/utils";
 
 type AnimatedButtonProps = React.ButtonHTMLAttributes<HTMLButtonElement> &
@@ -25,7 +26,7 @@ const AnimatedButton: React.FC<AnimatedButtonProps> = ({
 }) => {
   const Component = (motion as any)[as] || motion.button;
   // The shine loops forever, so it stays still for people who ask for reduced motion.
-  const reduceMotion = useReducedMotion();
+  const reduceMotion = usePrefersReducedMotion();
 
   return (
     <Component

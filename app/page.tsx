@@ -102,9 +102,9 @@ export default function CaseStudyPage() {
           <GooeyTextReveal>
             <h1
               id="overview-title"
-              className="max-w-3xl font-(family-name:--font-display) text-5xl leading-[1.05] font-normal tracking-tight text-balance sm:text-6xl"
+              className="max-w-3xl font-(family-name:--font-display) text-[2.5rem] leading-[1.05] font-normal tracking-tight text-balance sm:text-6xl"
             >
-              Crafting a modular filtering framework for data-heavy products
+              Crafting a modular filtering framework for data&#8209;heavy products
             </h1>
           </GooeyTextReveal>
           <p className="max-w-2xl text-lg text-pretty text-muted-foreground">
@@ -126,7 +126,7 @@ export default function CaseStudyPage() {
           </Frame>
         </div>
 
-        <div data-reveal className="flex flex-wrap gap-2">
+        <div data-reveal className="grid grid-cols-1 gap-2 sm:flex sm:flex-wrap">
           <ExploreButton />
           <Button asChild variant="outline" className="h-10 px-4">
             <a href={REPO_URL}>Source on GitHub</a>
@@ -135,7 +135,7 @@ export default function CaseStudyPage() {
 
         <div
           data-reveal-children
-          className="grid divide-y overflow-hidden rounded-2xl border bg-(--surface-raised) sm:grid-cols-2 sm:divide-x sm:divide-y-0"
+          className="grid grid-cols-1 divide-y overflow-hidden rounded-2xl border bg-(--surface-raised) sm:grid-cols-2 sm:divide-x sm:divide-y-0"
         >
           <Glance
             label="Problem"
@@ -157,7 +157,7 @@ export default function CaseStudyPage() {
 
       {/* --- Impact ----------------------------------------------------------------- */}
       <CaseSection id="impact" title="Impact">
-        <div data-reveal-children className="grid divide-y overflow-hidden rounded-2xl border bg-(--surface-raised)">
+        <div data-reveal-children className="grid grid-cols-1 divide-y overflow-hidden rounded-2xl border bg-(--surface-raised)">
           <ImpactRow value={5} suffix="×" title="Faster filtering" visual={<SpeedBars />}>
             People set and changed filters in seconds, not minutes, in design reviews.
           </ImpactRow>
@@ -247,7 +247,7 @@ export default function CaseStudyPage() {
         title="The craft in the details"
         lead="Small decisions make it feel good. Try them."
       >
-        <div data-reveal-children className="grid gap-4 md:grid-cols-2">
+        <div data-reveal-children className="grid grid-cols-1 gap-4 md:grid-cols-2">
           <DetailCard
             title="Rows never jump under your cursor"
             why="Selected options move to the top when the list opens, then stay put."
@@ -294,7 +294,7 @@ export default function CaseStudyPage() {
         title="Now a component system, for people and agents"
         lead="Written as a spec, tested rule by rule, and installable by people or AI agents."
       >
-        <div data-reveal-children className="grid gap-3 sm:grid-cols-2">
+        <div data-reveal-children className="grid grid-cols-1 gap-3 sm:grid-cols-2">
           <Feature icon={<TerminalIcon aria-hidden />} title="One command">
             The shadcn CLI copies the source and its styles into your project.
           </Feature>
@@ -325,22 +325,22 @@ export default function CaseStudyPage() {
             colors={BUBBLE_COLORS}
             className="absolute inset-0 -z-10 bg-linear-to-br from-[oklch(0.2_0.04_170)] to-[oklch(0.14_0.01_200)]"
           />
-          <div className="flex flex-col gap-6 p-6 sm:p-10">
-            <blockquote className="max-w-3xl font-(family-name:--font-display) text-3xl leading-snug font-normal text-pretty text-white">
+          <div className="flex flex-col gap-6 p-5 sm:p-10">
+            <blockquote className="max-w-3xl font-(family-name:--font-display) text-2xl leading-snug sm:text-3xl font-normal text-pretty text-white">
               Clarity without clutter, and control without complexity. A filter isn&apos;t just a
               tool; it&apos;s the start of a conversation with the data.
             </blockquote>
-            <ul className="grid gap-5 sm:grid-cols-3">
+            <ul className="grid grid-cols-1 gap-5 sm:grid-cols-3">
               {OUTCOMES.map(({ icon: Icon, text }) => (
-                <li key={text} className="flex flex-col gap-3">
-                  <span className="flex size-11 items-center justify-center rounded-xl bg-black/30 ring-1 ring-white/20">
+                <li key={text} className="flex items-center gap-4 sm:flex-col sm:items-start sm:gap-3">
+                  <span className="flex size-11 shrink-0 items-center justify-center rounded-xl bg-black/30 ring-1 ring-white/20">
                     <Icon aria-hidden className="size-5 text-(--fb-accent)" />
                   </span>
                   <span className="text-sm text-balance text-white/90">{text}</span>
                 </li>
               ))}
             </ul>
-            <div className="flex flex-wrap gap-2">
+            <div className="grid grid-cols-1 gap-2 sm:flex sm:flex-wrap">
               <ExploreButton />
               <Button asChild variant="outline" className="h-10 px-4">
                 <a href={ARTICLE_URL}>
@@ -354,7 +354,7 @@ export default function CaseStudyPage() {
         <a
           data-reveal
           href={PORTFOLIO_URL}
-          className="mt-4 inline-flex items-center gap-1.5 self-start rounded-sm text-sm text-muted-foreground outline-none transition-colors hover:text-foreground focus-visible:ring-3 focus-visible:ring-ring/50 motion-reduce:transition-none"
+          className="mt-2.5 inline-flex items-center gap-1.5 self-start rounded-sm py-1.5 text-sm text-muted-foreground outline-none transition-colors hover:text-foreground focus-visible:ring-3 focus-visible:ring-ring/50 motion-reduce:transition-none"
         >
           <ArrowLeftIcon aria-hidden className="size-4" />
           Back to portfolio
@@ -405,7 +405,7 @@ function CaseSection({
       <div data-reveal-children className="flex flex-col gap-2">
         <h2
           id={`${id}-title`}
-          className="font-(family-name:--font-display) text-[2.5rem] leading-[1.1] font-normal tracking-tight text-balance"
+          className="font-(family-name:--font-display) text-[2rem] leading-[1.1] font-normal tracking-tight text-balance sm:text-[2.5rem]"
         >
           {title}
         </h2>

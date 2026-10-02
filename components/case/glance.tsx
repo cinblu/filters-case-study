@@ -1,8 +1,8 @@
 "use client";
 
-import { useReducedMotion } from "motion/react";
 import type { ReactNode } from "react";
 
+import { usePrefersReducedMotion } from "@/lib/use-prefers-reduced-motion";
 import { cn } from "@/lib/utils";
 import { AnimateIcon } from "@/components/animate-ui/icons/icon";
 
@@ -19,7 +19,7 @@ export function Glance({
   icon: ReactNode;
   children: ReactNode;
 }) {
-  const reduce = useReducedMotion();
+  const reduce = usePrefersReducedMotion();
   return (
     <AnimateIcon animate={!reduce} loop loopDelay={1200} asChild>
       <div className="flex items-start gap-5 bg-(--surface-raised) p-6">
