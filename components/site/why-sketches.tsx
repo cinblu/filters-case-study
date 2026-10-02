@@ -29,7 +29,7 @@ function Set({ label, value }: { label: string; value: string }) {
 
 function OldButton({ children }: { children: ReactNode }) {
   return (
-    <span className="inline-flex h-7 items-center gap-1.5 rounded-md border bg-background px-2.5 text-xs shadow-xs">
+    <span className="inline-flex h-7 items-center gap-1.5 rounded-md border border-input bg-background px-2.5 text-xs shadow-xs">
       <SlidersHorizontalIcon aria-hidden className="size-3.5 text-muted-foreground" />
       {children}
     </span>
@@ -50,7 +50,8 @@ function Side({ label, tone, children }: { label: string; tone: "before" | "afte
       </figcaption>
       <div
         className={cn(
-          "flex min-h-28 flex-col justify-center gap-2 rounded-lg border p-4",
+          // flex-1: both sides of a pair stretch to the taller one.
+          "flex min-h-28 flex-1 flex-col justify-center gap-2 rounded-lg border border-foreground/20 p-4",
           // "Before" reads as a sketch (dashed, flat); "after" as the real, raised thing.
           tone === "before" ? "border-dashed bg-transparent" : "bg-(--surface-stage) shadow-xs",
         )}
@@ -95,7 +96,7 @@ export const sketches = {
   invisibleSort: {
     before: (
       <div className="flex flex-col gap-1.5 text-xs">
-        <div className="flex gap-6 border-b pb-1.5 text-muted-foreground">
+        <div className="flex gap-6 border-b border-input pb-1.5 text-muted-foreground">
           <span>Pages</span>
           <span>Source</span>
           <span>Assignee</span>
@@ -138,12 +139,12 @@ export const sketches = {
   competingForSpace: {
     before: (
       <div className="flex flex-col gap-1.5">
-        <span className="h-3 w-28 rounded-sm bg-muted" />
-        <span className="h-6 w-full rounded-md border" />
+        <span className="h-3 w-28 rounded-sm bg-input" />
+        <span className="h-6 w-full rounded-md border border-input" />
         <div className="flex gap-1.5">
-          <span className="h-6 w-20 rounded-md border" />
-          <span className="h-6 w-20 rounded-md border" />
-          <span className="h-6 w-20 rounded-md border" />
+          <span className="h-6 w-20 rounded-md border border-input" />
+          <span className="h-6 w-20 rounded-md border border-input" />
+          <span className="h-6 w-20 rounded-md border border-input" />
         </div>
         <span className="text-xs text-muted-foreground">Three rows before the data starts</span>
       </div>
@@ -157,7 +158,7 @@ export const sketches = {
         </div>
         <div className="flex flex-col gap-1">
           {[0, 1, 2].map((i) => (
-            <span key={i} className="h-2 rounded-sm bg-muted" />
+            <span key={i} className="h-2 rounded-sm bg-input" />
           ))}
         </div>
       </div>

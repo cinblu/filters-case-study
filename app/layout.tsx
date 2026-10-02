@@ -28,10 +28,22 @@ export const metadata: Metadata = {
   twitter: { card: "summary_large_image", title: "Crafting a modular filtering framework for data-heavy products", description },
 };
 
+const REVEAL_SCRIPT = `document.documentElement.classList.add("reveal");setTimeout(function(){if(!window.__revealReady)document.documentElement.classList.remove("reveal")},3000);`;
+
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    // Dark only, like the component site's default.
-    <html lang="en" className={cn("font-sans", geist.variable, geistMono.variable, fraunces.variable)}>
+    // Light, shifting to dark with the scroll from "Component system" down (ThemeScroll).
+    // suppressHydrationWarning: the script below adds a class before React hydrates.
+    <html
+      lang="en"
+      className={cn("font-sans", geist.variable, geistMono.variable, fraunces.variable)}
+      suppressHydrationWarning
+    >
+      <head>
+        {/* Turns on the scroll entrances before first paint, so nothing flashes in and out.
+            If the page's JavaScript never runs, the content shows again after 3 s. */}
+        <script dangerouslySetInnerHTML={{ __html: REVEAL_SCRIPT }} />
+      </head>
       <body className="bg-background text-foreground antialiased">
         <TooltipProvider>
           <SiteHeader />

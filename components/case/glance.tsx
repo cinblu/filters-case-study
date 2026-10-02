@@ -1,11 +1,13 @@
 "use client";
 
+import { useReducedMotion } from "motion/react";
 import type { ReactNode } from "react";
 
 import { cn } from "@/lib/utils";
 import { AnimateIcon } from "@/components/animate-ui/icons/icon";
 
-/** A big animated icon beside a label and a line; hovering anywhere on the cell plays it. */
+/** A big icon beside a label and a line. It plays on a loop, and holds still for people who
+ *  ask for reduced motion. */
 export function Glance({
   label,
   labelClassName,
@@ -17,8 +19,9 @@ export function Glance({
   icon: ReactNode;
   children: ReactNode;
 }) {
+  const reduce = useReducedMotion();
   return (
-    <AnimateIcon animateOnHover asChild>
+    <AnimateIcon animate={!reduce} loop loopDelay={1200} asChild>
       <div className="flex items-start gap-5 bg-(--surface-raised) p-6">
         <span aria-hidden className="shrink-0 [&_svg]:size-14">
           {icon}

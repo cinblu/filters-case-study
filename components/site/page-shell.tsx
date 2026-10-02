@@ -6,7 +6,7 @@ import { SiteFooter } from "./site-footer";
 /** Content on the left, the "On this page" rail on the right (wide screens). */
 export function PageShell({ sections, children }: { sections: PageSection[]; children: ReactNode }) {
   return (
-    <div className="mx-auto grid w-full max-w-6xl gap-12 px-4 pt-10 pb-24 sm:px-6 lg:grid-cols-[minmax(0,1fr)_10rem] xl:gap-16">
+    <div className="mx-auto grid w-full max-w-6xl gap-12 px-4 pt-16 pb-24 sm:px-6 sm:pt-24 lg:grid-cols-[minmax(0,1fr)_10rem] xl:gap-16">
       <div className="flex min-w-0 flex-col gap-16">
         <main className="flex min-w-0 flex-col gap-16">{children}</main>
         <SiteFooter />
